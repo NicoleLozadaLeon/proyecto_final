@@ -3,7 +3,7 @@ from mssql_connection import MSSQLConnection
 from config import MYSQL_CONFIG
 
 def test_migrate_data():
-    mysql_conn = MySQLConnection()
+    mysql_conn = MySQLConnection() 
     mssql_conn = MSSQLConnection()
 
     try:

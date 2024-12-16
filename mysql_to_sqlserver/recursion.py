@@ -1,8 +1,7 @@
 
 def invert_string(s):
     # Caso base: si la cadena está vacía o tiene un solo carácter
-    print(s)
-    print (s[0])
+
     if len(s) <= 1:
         return s
     else:
