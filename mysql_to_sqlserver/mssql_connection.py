@@ -1,5 +1,5 @@
 import pyodbc
-from config import MSSQL_CONFIG, MYSQL_CONFIG
+from .config import MSSQL_CONFIG, MYSQL_CONFIG
 
 class MSSQLConnection:
     """
