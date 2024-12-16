@@ -2,7 +2,6 @@
 
  Dentro de la carpeta `mysql_to_sqlserver` están seis archivos usando python; en el archivo llamado `config.py` se modifican las credenciales de MySQL y SQL Server para realizar la migración. En `mssql_connection.py` se conecta a SQL Server y en `mysql_connection.py` se conecta a MySQL, en `value_migrate.py` ocurre la migración, estableciendo una conexión con la base de datos al iniciar y cerrándola al salir, manejando errores. He agregado el archivo `test_migrate.py` que contiene las pruebas para verificar que el numero de registros es el mismo entre la base de datos de MySQL original y la migrada a SQL server, tanto el registro por tablas como el registro general, y el archivo `recursion.py`contiene la funcion recursiva. El arvhivo `test_migrate.py` es llamado en `value_migrate.py` despues de la migracion, y `recursion.py` es llamado luego de verificar que la migracion ha ocurrido correctamente.
 
-Se han implementado pruebas para asegurar que todas las funcionalidades de la interfaz funcionen correctamente:
 
 ## Defensa de Nicole Lozada Leon
 
