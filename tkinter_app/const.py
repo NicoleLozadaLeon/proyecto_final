@@ -1,5 +1,4 @@
 import tkinter as tk
-from mysql_to_sqlserver.mssql_connection import *
 
 SIZE_WINDOW = "1200x600" #tamaño de la ventana principal
 SIZE_SECOND_WINDOW = "300x600" #tamaño de lass ventanas secundarias

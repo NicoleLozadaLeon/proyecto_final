@@ -2,7 +2,7 @@
 Incluye un script en Python que permite crear una interfaz para las interraciones y modificaiones de una base de datos. Dentro de la carpeta tkinter_app están ocho archivos; en add.py se agrega una nueva fila a la tabla seleccionada, en conect.py se encuentra la conexion a la base de datos, const.py se encuentran llos valores constantes que se usan a lo largo de todo el codigo, delete.py nos permite eliminar una fila de la tabla seleccionada, bottons.py nos permite la creacion de la ventana principal y los botones principales, mod.py nos permite modificar los datos de la tabla seleccionada, see.py nos permite visualizar los registros de las tablas y por ultimo main.py llama a la interfaz
 
 ## Diagrama de Clases
-![image](https://github.com/user-attachments/assets/38d790e9-dacc-4600-bc90-f35c60b5586a) 
+![image](https://github.com/user-attachments/assets/38d790e9-dacc-4600-bc90-f35c60b5586a)
 
 ## Pseudocodigo
     Si se llama a "main" entonces
