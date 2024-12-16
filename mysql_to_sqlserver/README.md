@@ -284,7 +284,6 @@ FUNCIÓN migrate_data()
 FIN FUNCIÓN
 
 
-
 ## Colaboradoras
 
 - **Nicole Lozada León**  
