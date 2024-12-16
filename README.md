@@ -23,9 +23,11 @@ Se ha desarrollado una interfaz gráfica utilizando la biblioteca Tkinter de Pyt
 
 Agregar una columna "invertida" a la tabla "genre" donde deben estar los valores de la columna "name invertidos.
 
-<img src="graficos/image.png" alt="Defensa" width="300" style="display: block; margin: auto;">
+![image](https://github.com/user-attachments/assets/36a2cd57-6bb5-44f6-b891-6b0e88d03122)
+
 
 ## Esctructura del proyecto 
+![image](https://github.com/user-attachments/assets/fdef401a-c572-49cd-adf9-f66adca29f0d)
 
 
 ## Pruebas de la Solución
