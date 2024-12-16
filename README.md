@@ -25,6 +25,9 @@ Agregar una columna "invertida" a la tabla "genre" donde deben estar los valores
 
 <img src="graficos/image.png" alt="Defensa" width="300" style="display: block; margin: auto;">
 
+## Esctructura del proyecto 
+
+
 ## Pruebas de la Solución
 
 Se han implementado pruebas para asegurar que todas las funcionalidades de la interfaz funcionen correctamente:
