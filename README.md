@@ -19,6 +19,12 @@ Se ha desarrollado una interfaz gráfica utilizando la biblioteca Tkinter de Pyt
 - **Modificación de Registros**: Permite la edición de registros existentes de forma intuitiva.
 - **Eliminación de Registros**: Facilita la eliminación segura de registros seleccionados.
 
+## Defensa de Nicole Lozada Leon
+
+Agregar una columna "invertida" a la tabla "genre" donde deben estar los valores de la columna "name invertidos.
+
+<img src="graficos/image.png" alt="Defensa" width="300" style="display: block; margin: auto;">
+
 ## Pruebas de la Solución
 
 Se han implementado pruebas para asegurar que todas las funcionalidades de la interfaz funcionen correctamente:
@@ -55,9 +61,6 @@ Se han implementado pruebas para asegurar que todas las funcionalidades de la in
    - Verificación de que la conexión a la base de datos se cierre correctamente al cerrar la aplicación.
      ![image](https://github.com/user-attachments/assets/67977ba6-4d44-45ad-b3e8-00073162761d)
 
-## Gráficos del Proyecto
-
-A continuación se presentan los diagramas que ilustran la estructura y el funcionamiento del sistema:
 
 ### Modelo de Entidad-Relación
 <img src="graficos/modelo_E-T.jpeg" alt="Modelo de Entidad-Relación" width="300" style="display: block; margin: auto;">

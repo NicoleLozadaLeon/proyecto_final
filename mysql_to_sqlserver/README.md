@@ -4,6 +4,11 @@
 
 Se han implementado pruebas para asegurar que todas las funcionalidades de la interfaz funcionen correctamente:
 
+## Defensa de Nicole Lozada Leon
+
+Agregar una columna "invertida" a la tabla "genre" donde deben estar los valores de la columna "name invertidos.
+"graficos/image.png"
+
 ## Gráficos de mysql_to_sqlserver
 
 ### Diagrama de Clases - Conexión MySQL
