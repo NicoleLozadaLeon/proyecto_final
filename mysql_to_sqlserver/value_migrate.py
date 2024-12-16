@@ -1,6 +1,7 @@
 from mysql_connection import MySQLConnection
 from mssql_connection import MSSQLConnection
 from config import MYSQL_CONFIG
+from datetime import date
 
 # Map de tipos de datos de MySQL a tipos de datos de SQL Server
 data_type_mapping = {
@@ -236,12 +237,24 @@ def migrate_data():
                 column_exists = mssql_conn.execute_query(check_column_query)
 
                 if not column_exists:
-                    alter_table_query = f"ALTER TABLE {table_name} ADD modificacion DATE;"
+                    alter_table_query = f"ALTER TABLE {table_name} ADD modificacion VARCHAR(255);"
                     try:
                         mssql_conn.execute_update(alter_table_query)
                         print(f'Columna "modificación" agregada a la tabla: {table_name}')
                     except Exception as e:
                         print(f'Error al agregar columna "modificación" a la tabla {table_name}: {e}')
+                
+                    # Obtener la fecha actual en el formato DD-MM-YYYY
+                current_date = date.today().strftime('%d-%m-%Y')
+                #print(f"{current_date}")
+
+                # Actualizar todos los registros en la columna "modificacion" con la fecha actual
+                update_query = f"UPDATE {table_name} SET modificacion = '{current_date}';"
+                try:
+                    mssql_conn.execute_update(update_query)
+                    print(f'Columna "modificación" actualizada con la fecha actual en la tabla: {table_name}')
+                except Exception as e:
+                    print(f'Error al actualizar la columna "modificación" en la tabla {table_name}: {e}')
 
 
 
