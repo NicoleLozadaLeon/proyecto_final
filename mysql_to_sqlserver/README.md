@@ -7,15 +7,16 @@ Se han implementado pruebas para asegurar que todas las funcionalidades de la in
 ## Defensa de Nicole Lozada Leon
 
 Agregar una columna "invertida" a la tabla "genre" donde deben estar los valores de la columna "name invertidos.
-"graficos/image.png"
+![image](https://github.com/user-attachments/assets/1ee83fd6-af15-4e86-ab42-ab8a027e731a)
 
 ## Gráficos de mysql_to_sqlserver
 
 ### Diagrama de Clases - Conexión MySQL
-<img src="graficos/Class_diagram/MySQL_connection.jpg" alt="Diagrama de Clases - Conexión MySQL" width="300" style="display: block; margin: auto;">
+![image](https://github.com/user-attachments/assets/d4b44daa-661f-4848-bd46-8a93d2fbc906)
 
 ### Diagrama de Clases - Conexión SQL Server
-<img src="graficos/Class_diagram/SQLserver_connection.jpg" alt="Diagrama de Clases - Conexión SQL Server" width="300" style="display: block; margin: auto;">
+![image](https://github.com/user-attachments/assets/0ea52a06-78f3-42a5-adf1-c6cc0427e36a)
+
     
 
 ### Pseudocodigos - Clase: mysql_connection 
