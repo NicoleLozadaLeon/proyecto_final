@@ -192,27 +192,35 @@ def migrate_data():
                     print(f"Restricción de clave foránea agregada exitosamente a la tabla '{table_name}'.")
                 except Exception as e:
                     print(f"Error al agregar restricción de clave foránea a la tabla '{table_name}': {e}")
+
             table_genre = "genre"
+            alter_genre_query = f"ALTER TABLE {table_genre} ADD invertida VARCHAR(255);"
+            try:
+                mssql_conn.execute_update(alter_genre_query)
+                print(f'Columna "invertida" agregada a la tabla: {table_genre}')
+            except Exception as e:
+                print(f'Error al agregar columna "invertida" a la tabla {table_genre}: {e}')            
+
 
             # Consulta para seleccionar los valores de name
-            select_query = f"SELECT name FROM {table_genre};"
-            records = mssql_conn.execute_query(select_query)
-            #print(f"{records[0]}")
+            select_genre_query = f"SELECT name FROM {table_genre};"
+            records = mssql_conn.execute_query(select_genre_query)
 
             for record in records:
-                #print(f"{record}")
+                # Asegúrate de que record sea una cadena
+                name_value = str(record[0])  # Suponiendo que record es una tupla y el nombre está en el primer campo
+                # print(f"name: {name_value}") verificar si se esta mostrando el valor de la columna name
 
-                print(f"{record}")
-                inverted_value = invert_string(str(record))  # Invertir el valor de name
-                print(f"{inverted_value}")
-                update_query = f"UPDATE {table_genre} SET invertida = ? WHERE genre_id = 1"
+                inverted_value = invert_string(name_value)  # Invertir el valor de name
+                # print(f"invertida: {inverted_value}") verificar si se esta invirtiendo el valor de la columna name
+
+                # Formatear la consulta SQL manualmente
+                update_query = f"UPDATE {table_genre} SET invertida = '{inverted_value}' WHERE name = '{name_value}'"
                 try:
-                    mssql_conn.execute_update(update_query, (inverted_value,))
-                    print(f"Registro hecho exitosamente.")
+                    mssql_conn.execute_update(update_query)
+                    print(f"Registro hecho exitosamente en la tabla genre.")
                 except Exception as e:
                     print(f'Error al actualizar valores en la columna "invertida": {e}')
-
-
 
 
             # Agregar columna "modificación" a cada tabla existente
@@ -228,12 +236,14 @@ def migrate_data():
                 column_exists = mssql_conn.execute_query(check_column_query)
 
                 if not column_exists:
-                    alter_table_query = f"ALTER TABLE {table_name} ADD modificacion DATETIME;"
+                    alter_table_query = f"ALTER TABLE {table_name} ADD modificacion DATE;"
                     try:
                         mssql_conn.execute_update(alter_table_query)
                         print(f'Columna "modificación" agregada a la tabla: {table_name}')
                     except Exception as e:
                         print(f'Error al agregar columna "modificación" a la tabla {table_name}: {e}')
+
+
 
             # Variable para almacenar el número total de registros
         total_records_mysql = 0
