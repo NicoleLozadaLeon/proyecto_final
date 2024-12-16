@@ -1,6 +1,8 @@
 from mysql_connection import MySQLConnection
 from mssql_connection import MSSQLConnection
 from config import MYSQL_CONFIG
+from recursion import invert_string
+from test_migrate  import test_migrate_data
 from datetime import date
 
 # Map de tipos de datos de MySQL a tipos de datos de SQL Server
@@ -186,6 +188,7 @@ def migrate_data():
                 ADD CONSTRAINT {constraint_name}
                 FOREIGN KEY ({column_name})
                 REFERENCES {referenced_table_name} ({referenced_column_name});
+                
                 """
 
                 try:
@@ -193,6 +196,10 @@ def migrate_data():
                     print(f"Restricción de clave foránea agregada exitosamente a la tabla '{table_name}'.")
                 except Exception as e:
                     print(f"Error al agregar restricción de clave foránea a la tabla '{table_name}': {e}")
+        
+            test_migrate_data()
+        
+# DEFENSA DEL PROYECTO - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - -- - - - - - - - -- - - - - -- 
 
             table_genre = "genre"
             alter_genre_query = f"ALTER TABLE {table_genre} ADD invertida VARCHAR(255);"
@@ -223,6 +230,8 @@ def migrate_data():
                 except Exception as e:
                     print(f'Error al actualizar valores en la columna "invertida": {e}')
 
+# FIN DEFENSA DEL PROYECTO  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - -- - - - - - - - -- - - - - -- 
+
 
             # Agregar columna "modificación" a cada tabla existente
             for table in tables_mysql:
@@ -246,7 +255,6 @@ def migrate_data():
                 
                     # Obtener la fecha actual en el formato DD-MM-YYYY
                 current_date = date.today().strftime('%d-%m-%Y')
-                #print(f"{current_date}")
 
                 # Actualizar todos los registros en la columna "modificacion" con la fecha actual
                 update_query = f"UPDATE {table_name} SET modificacion = '{current_date}';"
@@ -257,41 +265,12 @@ def migrate_data():
                     print(f'Error al actualizar la columna "modificación" en la tabla {table_name}: {e}')
 
 
-
-            # Variable para almacenar el número total de registros
-        total_records_mysql = 0
-
-            # Iterar en las tablas
-        for table in tables_mysql:
-            table_name = table['Tables_in_' + db_name]
-
-                # Obtener datos de MySQL
-            data_query = f"SELECT * FROM {table_name};"
-            data = mysql_conn.execute_query(data_query)
-
-                # Contar el número de registros en la tabla actual
-            table_records = len(data)
-            total_records_mysql += table_records
-            #print(f'Número de registros en la tabla {table_name}: {table_records}')
-
-            # Imprimir el número total de registros
-        print(f'Número total de registros en todas las tablas de mysql: {total_records_mysql}')
-
-
-
     except Exception as e:
         print(f'Error durante la migración: {e}')
     finally:
         mysql_conn.close()
         mssql_conn.close()
-
-def invert_string(s):
-    # Caso base: si la cadena está vacía o tiene un solo carácter
-
-    if len(s) <= 1:
-        return s
-    else:
-        return invert_string(s[1:]) + s[0]
+    
 
 if __name__ == "__main__":
     migrate_data()

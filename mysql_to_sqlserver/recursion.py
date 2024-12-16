@@ -8,8 +8,6 @@ def invert_string(s):
     else:
         return invert_string(s[1:]) + s[0]
 
-string = "rosa"
-new_string = invert_string(string)
-print(new_string)  
+
 
 
